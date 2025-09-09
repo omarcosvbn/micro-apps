@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
-import { Jersey_10 } from "next/font/google";
-import "./globals.css";
-import Head from "next/head";
-import Header from "./components/Header/Header";
+import type { Metadata } from 'next'
+import { Jersey_10 } from 'next/font/google'
+import './globals.scss'
+import Header from './components/Header/Header'
+import Apps from './components/Apps/Apps'
 
 const jersey10 = Jersey_10({
   weight: '400',
@@ -10,23 +10,23 @@ const jersey10 = Jersey_10({
   display: 'swap',
 })
 
-
 export const metadata: Metadata = {
-  title: "Micro-apps",
-  description: "Micro-apps",
-};
+  title: 'Micro-apps',
+  description: 'Micro-apps',
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en">
       <body className={jersey10.className}>
         <Header />
+        <Apps />
         {children}
       </body>
     </html>
-  );
+  )
 }
