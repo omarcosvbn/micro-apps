@@ -1,8 +1,14 @@
-@import '../../variables.scss';
+@import '../../styles/variables.scss';
 
 .container{
    width: 300px;
+   height: fit-content;
+   image-rendering: pixelated;
+   
+    border-image: url(/side-container.webp) 41% / 32px 32px round;
     background-color: $primary-color;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
 }
 
 .apps{
