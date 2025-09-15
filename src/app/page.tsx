@@ -1,29 +1,15 @@
+import { Doto } from 'next/font/google'
 import styles from './page.module.scss'
+
+const doto = Doto({
+  weight: '800',
+  subsets: ['latin'],
+})
 
 export default function Home() {
   return (
-    <>
-      <h1 className={styles.h1}>Hello World!</h1>
-      <h1 className={styles.h1}>Hello World!</h1>
-      <h1 className={styles.h1}>Hello World!</h1>
-      <h1 className={styles.h1}>Hello World!</h1>
-      <h1 className={styles.h1}>Hello World!</h1>
-      <h1 className={styles.h1}>Hello World!</h1>
-      <h1 className={styles.h1}>Hello World!</h1>
-      <h1 className={styles.h1}>Hello World!</h1>
-      <h1 className={styles.h1}>Hello World!</h1>
-      <h1 className={styles.h1}>Hello World!</h1>
-      <h1 className={styles.h1}>Hello World!</h1>
-      <h1 className={styles.h1}>Hello World!</h1>
-      <h1 className={styles.h1}>Hello World!</h1>
-      <h1 className={styles.h1}>Hello World!</h1>
-      <h1 className={styles.h1}>Hello World!</h1>
-      <h1 className={styles.h1}>Hello World!</h1>
-      <h1 className={styles.h1}>Hello World!</h1>
-      <h1 className={styles.h1}>Hello World!</h1>
-      <h1 className={styles.h1}>Hello World!</h1>
-      <h1 className={styles.h1}>Hello World!</h1>
-      <h1 className={styles.h1}>Hello World!</h1>
-    </>
+    <div className={styles.container}>
+      <h1 className={`${doto.className} ${styles.h1}`}>Micro-apps</h1>
+    </div>
   )
 }
