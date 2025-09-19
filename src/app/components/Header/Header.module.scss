@@ -7,10 +7,59 @@
   align-items: center;
   justify-content: space-between;
   padding-left: 35px;
+  padding-right: 35px;
 }
 
 .h1 {
   font-weight: 600;
   font-size: 40px;
   color: $primary-color;
+}
+
+.menu{
+  all: unset;
+  width: fit-content;
+  height: auto;
+  background-color: none;
+  z-index: 100;
+}
+
+.image{
+  width: 42px;
+  height: auto;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvh;
+  background: $secondary-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  z-index: 10;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+
+    li {
+      margin: 20px 0;
+
+      a {
+        color: $primary-color;
+        font-size: 2rem;
+        text-decoration: none;
+      }
+    }
+  }
+
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
 }
