@@ -27,7 +27,7 @@ export default function RootLayout({
         <Header />
         <div className={styles.container}>
           <Apps />
-          <main>{children}</main>
+          <main className={styles.main}>{children}</main>
         </div>
       </body>
     </html>

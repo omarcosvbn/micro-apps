@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@use '../../styles/variables';
 
 .container{
    width: 300px;
@@ -6,7 +6,7 @@
    image-rendering: pixelated;
    
     border-image: url(/side-container.webp) 41% / 32px 32px round;
-    background-color: $primary-color;
+    background-color: variables.$primary-color;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
 }
@@ -20,5 +20,5 @@
     padding-bottom: 40px;
     list-style: none;
     font-size: 36px;
-    color: $secondary-color;
+    color: variables.$secondary-color;
 }

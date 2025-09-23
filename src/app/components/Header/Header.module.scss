@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@use '../../styles/variables';
 
 .header {
   width: 100%;
@@ -13,7 +13,7 @@
 .h1 {
   font-weight: 600;
   font-size: 40px;
-  color: $primary-color;
+  color: variables.$primary-color;
 }
 
 .menu{
@@ -22,6 +22,7 @@
   height: auto;
   background-color: none;
   z-index: 100;
+  display: none;
 }
 
 .image{
@@ -35,7 +36,7 @@
   left: 0;
   width: 100dvw;
   height: 100dvh;
-  background: $secondary-color;
+  background: variables.$secondary-color;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,9 +52,9 @@
       margin: 20px 0;
 
       a {
-        color: $primary-color;
-        font-size: 2rem;
         text-decoration: none;
+        color: variables.$primary-color;
+        font-size: 2rem;
       }
     }
   }
@@ -61,5 +62,11 @@
   &.show {
     opacity: 1;
     visibility: visible;
+  }
+}
+
+@media (max-width: 1110px){
+  .menu{
+    display: block;
   }
 }

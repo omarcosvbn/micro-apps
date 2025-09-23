@@ -1,5 +1,10 @@
-
 .container {
   display: flex;
   gap: 100px;
+}
+
+.main {
+  width: 60vw;
+  min-width: 700px;
+  height: 75dvh;
 }
