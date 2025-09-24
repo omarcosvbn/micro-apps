@@ -27,3 +27,12 @@ main {
   min-width: 700px;
   height: 75dvh;
 }
+
+@media (max-width: 1110px) {
+  main { 
+    width: 100vw;
+    min-width: unset;
+    height: 80dvh;
+    margin-top: 50px;
+  }
+}
