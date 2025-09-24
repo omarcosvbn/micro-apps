@@ -6,19 +6,19 @@ export default function Apps() {
     <div className={styles.container}>
       <ul className={styles.apps}>
         <li>
-          <Link href="/todo">To-do list</Link>
+          <Link className={styles.link} href="/todo">To-do list</Link>
         </li>
         <li>
-          <Link href="/timer">Timer</Link>
+          <Link className={styles.link} href="/timer">Timer</Link>
         </li>
         <li>
-          <Link href="/unit">Unit Converter</Link>
+          <Link className={styles.link} href="/unit">Unit Converter</Link>
         </li>
         <li>
-          <Link href="/dice">Dice</Link>
+          <Link className={styles.link} href="/dice">Dice</Link>
         </li>
         <li>
-          <Link href="/clocks">Clocks</Link>
+          <Link className={styles.link} href="/clocks">Clocks</Link>
         </li>
       </ul>
     </div>
