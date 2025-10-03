@@ -10,13 +10,26 @@
   padding-right: 25px;
 }
 
-.h1 {
+.titles {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
   font-weight: 600;
-  font-size: 40px;
   color: variables.$primary-color;
 }
 
-.menu{
+.h1 {
+  display: block;
+  font-size: 40px;
+}
+
+.title {
+  display: none;
+  font-size: 40px;
+}
+
+.menu {
   all: unset;
   width: fit-content;
   height: auto;
@@ -25,7 +38,7 @@
   display: none;
 }
 
-.image{
+.image {
   width: 42px;
   height: auto;
 }
@@ -65,8 +78,16 @@
   }
 }
 
-@media (max-width: 1110px){
-  .menu{
+@media (max-width: 1110px) {
+  .menu {
+    display: block;
+  }
+
+  .h1 {
+    display: none;
+  }
+
+  .title {
     display: block;
   }
 }
