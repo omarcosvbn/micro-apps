@@ -7,7 +7,6 @@
   align-items: center;
   justify-content: space-between;
   padding-left: 35px;
-  padding-right: 25px;
 }
 
 .titles {
@@ -52,7 +51,7 @@
   background: variables.$secondary-color;
   display: flex;
   justify-content: center;
-  align-items: center;
+  padding-top: 25dvh;
   visibility: hidden;
   z-index: 10;
 
@@ -79,6 +78,11 @@
 }
 
 @media (max-width: 1110px) {
+  .header {
+    padding-left: 25px;
+    padding-right: 15px;
+  }
+
   .menu {
     display: block;
   }
