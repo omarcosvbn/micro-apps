@@ -18,6 +18,10 @@ export default function Header() {
     setIsOpen(!isOpen)
   }
 
+  const handleCloseMenu = () => {
+    setIsOpen(false)
+  }
+
   const pathname = usePathname()
   const titles: Record<string, string> = {
     '/': '',
@@ -43,32 +47,32 @@ export default function Header() {
       <nav className={`${styles.nav} ${isOpen ? styles.show : ''}`}>
         <ul>
           <li>
-            <Link href="/" className={styles.link}>
+            <Link href="/" className={styles.link} onClick={handleCloseMenu}>
               Home
             </Link>
           </li>
           <li>
-            <Link href="/todo" className={styles.link}>
+            <Link href="/todo" className={styles.link} onClick={handleCloseMenu}>
               To-do
             </Link>
           </li>
           <li>
-            <Link href="/timer" className={styles.link}>
+            <Link href="/timer" className={styles.link} onClick={handleCloseMenu}>
               Timer
             </Link>
           </li>
           <li>
-            <Link href="/unit" className={styles.link}>
+            <Link href="/unit" className={styles.link} onClick={handleCloseMenu}>
               Unit Converter
             </Link>
           </li>
           <li>
-            <Link href="/dice" className={styles.link}>
+            <Link href="/dice" className={styles.link} onClick={handleCloseMenu}>
               Dice
             </Link>
           </li>
           <li>
-            <Link href="/clocks" className={styles.link}>
+            <Link href="/clocks" className={styles.link} onClick={handleCloseMenu}>
               Clocks
             </Link>
           </li>
