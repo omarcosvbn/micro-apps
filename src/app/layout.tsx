@@ -3,6 +3,7 @@ import { Jersey_10 } from 'next/font/google'
 import './styles/globals.scss'
 import Header from './components/Header/Header'
 import Apps from './components/Apps/Apps'
+import { AppProvider } from './context/AppContext'
 import styles from './styles/layout.module.scss'
 
 const jersey10 = Jersey_10({
@@ -24,11 +25,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={jersey10.className}>
-        <Header />
-        <div className={styles.container}>
-          <Apps />
-          <main>{children}</main>
-        </div>
+        <AppProvider>
+          <Header />
+          <div className={styles.container}>
+            <Apps />
+            <main>{children}</main>
+          </div>
+        </AppProvider>
       </body>
     </html>
   )

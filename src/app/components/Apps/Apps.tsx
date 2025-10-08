@@ -1,24 +1,46 @@
+'use client'
+
 import Link from 'next/link'
 import styles from './Apps.module.scss'
+import { useAppContext } from '../../context/AppContext'
 
 export default function Apps() {
+  const { setCurrentAppTitle } = useAppContext()
+
+  const handleAppClick = (title: string) => {
+    setCurrentAppTitle(title)
+  }
   return (
     <div className={styles.container}>
       <ul className={styles.apps}>
         <li>
-          <Link className={styles.link} href="/todo">To-do list</Link>
+          <Link className={styles.link} href="/todo" onClick={() => handleAppClick('To-do list')}>
+            To-do list
+          </Link>
         </li>
         <li>
-          <Link className={styles.link} href="/timer">Timer</Link>
+          <Link className={styles.link} href="/timer" onClick={() => handleAppClick('Timer')}>
+            Timer
+          </Link>
         </li>
         <li>
-          <Link className={styles.link} href="/unit">Unit Converter</Link>
+          <Link
+            className={styles.link}
+            href="/unit"
+            onClick={() => handleAppClick('Unit Converter')}
+          >
+            Unit Converter
+          </Link>
         </li>
         <li>
-          <Link className={styles.link} href="/dice">Dice</Link>
+          <Link className={styles.link} href="/dice" onClick={() => handleAppClick('Dice')}>
+            Dice
+          </Link>
         </li>
         <li>
-          <Link className={styles.link} href="/clocks">Clocks</Link>
+          <Link className={styles.link} href="/clocks" onClick={() => handleAppClick('Clocks')}>
+            Clocks
+          </Link>
         </li>
       </ul>
     </div>

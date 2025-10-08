@@ -3,8 +3,8 @@
 import { Doto } from 'next/font/google'
 import styles from './Header.module.scss'
 import { useState } from 'react'
-import { usePathname } from 'next/navigation'
 import Link from 'next/link'
+import { useAppContext } from '../../context/AppContext'
 
 const doto = Doto({
   weight: '800',
@@ -13,6 +13,7 @@ const doto = Doto({
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
+  const { currentAppTitle, setCurrentAppTitle } = useAppContext()
 
   const handleClick = () => {
     setIsOpen(!isOpen)
@@ -22,23 +23,11 @@ export default function Header() {
     setIsOpen(false)
   }
 
-  const pathname = usePathname()
-  const titles: Record<string, string> = {
-    '/': '',
-    '/todo': 'To-do list',
-    '/timer': 'Timer',
-    '/unit': 'Unit Converter',
-    '/dice': 'Dice',
-    '/clocks': 'Clocks',
-  }
-
-  const pageTitle = titles[pathname] ?? pathname
-
   return (
     <header className={styles.header}>
       <div className={styles.titles}>
         <h1 className={`${doto.className} ${styles.h1}`}>Micro-apps</h1>
-        <h1 className={`${doto.className} ${styles.title}`}>{pageTitle}</h1>
+        <h1 className={`${doto.className} ${styles.title}`}>{currentAppTitle}</h1>
       </div>
       <button onClick={handleClick} className={styles.menu}>
         <img src={isOpen ? '/close.webp' : '/open.webp'} className={styles.image} />
@@ -47,32 +36,74 @@ export default function Header() {
       <nav className={`${styles.nav} ${isOpen ? styles.show : ''}`}>
         <ul>
           <li>
-            <Link href="/" className={styles.link} onClick={handleCloseMenu}>
+            <Link
+              href="/"
+              className={styles.link}
+              onClick={() => {
+                setCurrentAppTitle('')
+                handleCloseMenu()
+              }}
+            >
               Home
             </Link>
           </li>
           <li>
-            <Link href="/todo" className={styles.link} onClick={handleCloseMenu}>
+            <Link
+              href="/todo"
+              className={styles.link}
+              onClick={() => {
+                setCurrentAppTitle('To-do list')
+                handleCloseMenu()
+              }}
+            >
               To-do
             </Link>
           </li>
           <li>
-            <Link href="/timer" className={styles.link} onClick={handleCloseMenu}>
+            <Link
+              href="/timer"
+              className={styles.link}
+              onClick={() => {
+                setCurrentAppTitle('Timer')
+                handleCloseMenu()
+              }}
+            >
               Timer
             </Link>
           </li>
           <li>
-            <Link href="/unit" className={styles.link} onClick={handleCloseMenu}>
+            <Link
+              href="/unit"
+              className={styles.link}
+              onClick={() => {
+                setCurrentAppTitle('Unit Converter')
+                handleCloseMenu()
+              }}
+            >
               Unit Converter
             </Link>
           </li>
           <li>
-            <Link href="/dice" className={styles.link} onClick={handleCloseMenu}>
+            <Link
+              href="/dice"
+              className={styles.link}
+              onClick={() => {
+                setCurrentAppTitle('Dice')
+                handleCloseMenu()
+              }}
+            >
               Dice
             </Link>
           </li>
           <li>
-            <Link href="/clocks" className={styles.link} onClick={handleCloseMenu}>
+            <Link
+              href="/clocks"
+              className={styles.link}
+              onClick={() => {
+                setCurrentAppTitle('Clocks')
+                handleCloseMenu()
+              }}
+            >
               Clocks
             </Link>
           </li>
