@@ -1,15 +1,8 @@
 @use '../../styles/variables';
 
-.container {
-  display: block;
+.box {
   width: 300px;
   height: fit-content;
-  image-rendering: pixelated;
-
-  border-image: url(/side-container.webp) 41% / 32px 32px round;
-  background-color: variables.$primary-color;
-  border-top-right-radius: 50px;
-  border-bottom-right-radius: 50px;
 }
 
 .apps {
@@ -44,7 +37,7 @@
 }
 
 @media (max-width: 1110px) {
-  .container {
+  .box {
     display: none;
   }
 }

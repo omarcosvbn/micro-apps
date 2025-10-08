@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import styles from './Apps.module.scss'
 import { useAppTitle } from '../../store/useAppTitle'
+import Box from '../Box/Box'
 
 export default function Apps() {
   const { setCurrentAppTitle } = useAppTitle()
@@ -11,7 +12,7 @@ export default function Apps() {
     setCurrentAppTitle(title)
   }
   return (
-    <div className={styles.container}>
+    <Box cornerImage="/side-container.webp" cornerSize={64} padding={0} className={styles.box}>
       <ul className={styles.apps}>
         <li>
           <Link className={styles.link} href="/todo" onClick={() => handleAppClick('To-do list')}>
@@ -43,6 +44,6 @@ export default function Apps() {
           </Link>
         </li>
       </ul>
-    </div>
+    </Box>
   )
 }
