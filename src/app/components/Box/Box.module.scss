@@ -14,6 +14,7 @@
   background-size: contain;
   pointer-events: none;
   image-rendering: pixelated;
+  background-image: var(--desktop-corner-image);
 }
 
 .tl {
@@ -40,4 +41,8 @@
   clip-path: inset(50% 50% 0 0);
 }
 
-
+@media (max-width: 1110px) {
+  .corner {
+    background-image: var(--mobile-corner-image);
+  }
+}

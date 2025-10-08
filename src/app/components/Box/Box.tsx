@@ -6,6 +6,7 @@ type BoxProps = {
   padding?: number
   cornerSize?: number
   cornerImage: string
+  mobileCornerImage?: string
   className?: string
 }
 
@@ -14,6 +15,7 @@ export default function Box({
   padding = 16,
   cornerSize = 32,
   cornerImage,
+  mobileCornerImage,
   className,
 }: BoxProps) {
   const boxStyle: React.CSSProperties = {
@@ -24,8 +26,9 @@ export default function Box({
   const cornerStyle: React.CSSProperties = {
     width: `${cornerSize}px`,
     height: `${cornerSize}px`,
-    backgroundImage: `url(${cornerImage})`,
-  }
+    '--desktop-corner-image': `url(${cornerImage})`,
+    '--mobile-corner-image': mobileCornerImage ? `url(${mobileCornerImage})` : `url(${cornerImage})`,
+  } as React.CSSProperties
 
   return (
     <div className={`${styles.box} ${className ?? ''}`} style={boxStyle}>

@@ -11,7 +11,7 @@ export default function Todo() {
   return (
     <div className={styles.container}>
       <h1 className={`${doto.className} ${styles.h1}`}>Micro-apps</h1>
-      <Box cornerImage="/container.webp">
+      <Box cornerImage="/container.webp" mobileCornerImage="/side-container.webp">
         <h2 className={`${doto.className} ${styles.h2}`}>To-do list</h2>
       </Box>
     </div>
