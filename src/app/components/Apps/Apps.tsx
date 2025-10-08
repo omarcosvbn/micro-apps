@@ -2,10 +2,10 @@
 
 import Link from 'next/link'
 import styles from './Apps.module.scss'
-import { useAppContext } from '../../context/AppContext'
+import { useAppTitle } from '../../store/useAppTitle'
 
 export default function Apps() {
-  const { setCurrentAppTitle } = useAppContext()
+  const { setCurrentAppTitle } = useAppTitle()
 
   const handleAppClick = (title: string) => {
     setCurrentAppTitle(title)

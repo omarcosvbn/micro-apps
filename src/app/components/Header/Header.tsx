@@ -4,7 +4,7 @@ import { Doto } from 'next/font/google'
 import styles from './Header.module.scss'
 import { useState } from 'react'
 import Link from 'next/link'
-import { useAppContext } from '../../context/AppContext'
+import { useAppTitle } from '../../store/useAppTitle'
 
 const doto = Doto({
   weight: '800',
@@ -13,7 +13,7 @@ const doto = Doto({
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
-  const { currentAppTitle, setCurrentAppTitle } = useAppContext()
+  const { currentAppTitle, setCurrentAppTitle } = useAppTitle()
 
   const handleClick = () => {
     setIsOpen(!isOpen)
