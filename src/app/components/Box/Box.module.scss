@@ -41,6 +41,10 @@
   clip-path: inset(50% 50% 0 0);
 }
 
+.title{
+  font-size: 24px;
+}
+
 @media (max-width: 1110px) {
   .corner {
     background-image: var(--mobile-corner-image);

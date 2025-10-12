@@ -10,10 +10,16 @@ const doto = Doto({
 export default function Todo() {
   return (
     <div className={styles.container}>
-      <h1 className={`${doto.className} ${styles.h1}`}>Micro-apps</h1>
-      <Box cornerImage="/container.webp" mobileCornerImage="/side-container.webp">
-        <h2 className={`${doto.className} ${styles.h2}`}>To-do list</h2>
+      <div className={styles.post}>
+      <Box cornerImage="/container.webp" mobileCornerImage="/side-container.webp" title="Type here" className={styles.input}>
+        <form id="todo-form" className={styles.p}>
+          <textarea placeholder="..." />
+        </form>
       </Box>
+      <Box cornerImage="/container.webp" className={styles.submit}>
+        <button type="submit" form="todo-form">Submit</button>
+      </Box>
+      </div>
     </div>
   )
 }
