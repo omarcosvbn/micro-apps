@@ -17,6 +17,12 @@ export default function Todo() {
     setInput('')
   }
 
+  function deleteSelected() {
+    if (selected === null) return
+    setTodos((prev) => prev.filter((_, i) => i !== selected))
+    setSelected(null)
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.post}>
@@ -70,7 +76,7 @@ export default function Todo() {
               <Box cornerImage="/container.webp">down</Box>
             </button>
           </div>
-          <button className={styles.tasks__buttons__delete}>
+          <button className={styles.tasks__buttons__delete} onClick={() => deleteSelected()}>
             <Box cornerImage="/container.webp">delete</Box>
           </button>
         </div>
