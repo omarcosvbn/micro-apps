@@ -23,6 +23,30 @@ export default function Todo() {
     setSelected(null)
   }
 
+  function moveSelectedUp() {
+    if (selected === null || selected === 0) return
+    setTodos((prev) => {
+      const newTodos = [...prev]
+      const temp = newTodos[selected - 1]
+      newTodos[selected - 1] = newTodos[selected]
+      newTodos[selected] = temp
+      return newTodos
+    })
+    setSelected((prev) => (prev !== null ? prev - 1 : null))
+  }
+
+  function moveSelectedDown() {
+    if (selected === null || selected === todos.length - 1) return
+    setTodos((prev) => {
+      const newTodos = [...prev]
+      const temp = newTodos[selected + 1]
+      newTodos[selected + 1] = newTodos[selected]
+      newTodos[selected] = temp
+      return newTodos
+    })
+    setSelected((prev) => (prev !== null ? prev + 1 : null))
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.post}>
@@ -68,11 +92,11 @@ export default function Todo() {
         </Box>
         <div className={styles.tasks__buttons}>
           <div className={styles.tasks__buttons__arrows}>
-            <button className={styles.submit}>
+            <button className={styles.submit} onClick={()=> moveSelectedUp()}>
               <Box cornerImage="/container.webp">up</Box>
             </button>
 
-            <button className={styles.submit}>
+            <button className={styles.submit} onClick={()=> moveSelectedDown()}>
               <Box cornerImage="/container.webp">down</Box>
             </button>
           </div>
