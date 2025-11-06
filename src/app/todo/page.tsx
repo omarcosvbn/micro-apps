@@ -7,6 +7,7 @@ import Box from '../components/Box/Box'
 export default function Todo() {
   const [input, setInput] = useState('')
   const [todos, setTodos] = useState<string[]>([])
+  const [selected, setSelected] = useState<number | null>(null)
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -34,9 +35,7 @@ export default function Todo() {
           </form>
         </Box>
         <button type="submit" form="todo-form" className={styles.submit}>
-          <Box cornerImage="/container.webp">
-            Submit
-          </Box>
+          <Box cornerImage="/container.webp">Submit</Box>
         </button>
       </div>
 
@@ -50,11 +49,13 @@ export default function Todo() {
           className={styles.tasks__display}
         >
           {todos.length === 0 ? (
-            <p></p>
+            <></>
           ) : (
             <ul className={styles.p}>
               {todos.map((t, i) => (
-                <li key={i}>{t}</li>
+                <li key={i} className={i === selected ? styles.selected : ''} onClick={() => setSelected(i)}>
+                  {t}
+                </li>
               ))}
             </ul>
           )}
@@ -62,15 +63,11 @@ export default function Todo() {
         <div className={styles.tasks__buttons}>
           <div className={styles.tasks__buttons__arrows}>
             <button className={styles.submit}>
-              <Box cornerImage="/container.webp" >
-                up
-              </Box>
+              <Box cornerImage="/container.webp">up</Box>
             </button>
 
             <button className={styles.submit}>
-              <Box cornerImage="/container.webp">
-                down
-              </Box>
+              <Box cornerImage="/container.webp">down</Box>
             </button>
           </div>
           <button className={styles.tasks__buttons__delete}>
