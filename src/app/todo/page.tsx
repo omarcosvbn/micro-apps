@@ -45,10 +45,12 @@ export default function Todo() {
           cornerImage="/container.webp"
           mobileCornerImage="/side-container.webp"
           title="Tasks"
+          padding={0}
+          paddingBottom={16}
           className={styles.tasks__display}
         >
           {todos.length === 0 ? (
-            <p className={styles.p}>No tasks yet</p>
+            <p></p>
           ) : (
             <ul className={styles.p}>
               {todos.map((t, i) => (

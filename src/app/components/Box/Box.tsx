@@ -9,6 +9,10 @@ type BoxProps = {
   mobileCornerImage?: string
   className?: string
   title?: string
+  paddingTop?: number
+  paddingBottom?: number
+  paddingLeft?: number
+  paddingRight?: number
 }
 
 export default function Box({
@@ -18,18 +22,32 @@ export default function Box({
   cornerImage,
   mobileCornerImage,
   className,
-  title
+  title,
+  paddingTop,
+  paddingBottom,
+  paddingLeft,
+  paddingRight,
 }: BoxProps) {
   const boxStyle: React.CSSProperties = {
     padding: `${padding}px`,
-    borderRadius: `${(cornerSize/2) + 2}px`,
+    paddingTop: paddingTop ? `${paddingTop}px` : undefined,
+    paddingBottom: paddingBottom ? `${paddingBottom}px` : undefined,
+    paddingLeft: paddingLeft ? `${paddingLeft}px` : undefined,
+    paddingRight: paddingRight ? `${paddingRight}px` : undefined,
+    borderRadius: `${cornerSize / 2 + 2}px`,
+  }
+
+  const titleStyle: React.CSSProperties = {
+    padding: padding === 0 ? '16px' : 'undefined',
   }
 
   const cornerStyle: React.CSSProperties = {
     width: `${cornerSize}px`,
     height: `${cornerSize}px`,
     '--desktop-corner-image': `url(${cornerImage})`,
-    '--mobile-corner-image': mobileCornerImage ? `url(${mobileCornerImage})` : `url(${cornerImage})`,
+    '--mobile-corner-image': mobileCornerImage
+      ? `url(${mobileCornerImage})`
+      : `url(${cornerImage})`,
   } as React.CSSProperties
 
   return (
@@ -38,10 +56,14 @@ export default function Box({
       <span className={`${styles.corner} ${styles.tr}`} style={cornerStyle} />
       <span className={`${styles.corner} ${styles.br}`} style={cornerStyle} />
       <span className={`${styles.corner} ${styles.bl}`} style={cornerStyle} />
-      {title? <h1 className={styles.title}>{title}</h1> : ''}
+      {title ? (
+        <h1 className={styles.title} style={titleStyle}>
+          {title}
+        </h1>
+      ) : (
+        ''
+      )}
       {children}
     </div>
   )
 }
-
-
