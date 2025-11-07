@@ -1,17 +1,20 @@
-import { Doto } from 'next/font/google'
+import Box from '../components/Box/Box'
 import styles from './page.module.scss'
-
-const doto = Doto({
-  weight: '800',
-  subsets: ['latin'],
-})
 
 export default function Dice() {
   return (
     <div className={styles.container}>
-      <h1 className={`${doto.className} ${styles.h1}`}>Micro-apps</h1>
+      <Box cornerImage="/container.webp" mobileCornerImage="/side-container.webp">
+        {(() => {
+          const roll = Math.floor(Math.random() * 6) + 1
+          const src = `/dice/${roll}.webp`
+          return (
+            <div>
+              <img src={src} alt={`Dice ${roll}`} width={128} height={128} />
+            </div>
+          )
+        })()}
+      </Box>
     </div>
   )
 }
-
-
