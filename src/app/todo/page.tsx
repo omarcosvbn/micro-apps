@@ -55,6 +55,8 @@ export default function Todo() {
           mobileCornerImage="/side-container.webp"
           title="Type here"
           className={styles.input}
+          padding={0}
+          paddingBottom={16}
         >
           <form id="todo-form" className={styles.p} onSubmit={handleSubmit}>
             <textarea

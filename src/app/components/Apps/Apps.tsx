@@ -6,7 +6,8 @@ import { useAppTitle } from '../../store/useAppTitle'
 import Box from '../Box/Box'
 
 export default function Apps() {
-  const { setCurrentAppTitle } = useAppTitle()
+  const currentAppTitle = useAppTitle((s) => s.currentAppTitle)
+  const setCurrentAppTitle = useAppTitle((s) => s.setCurrentAppTitle)
 
   const handleAppClick = (title: string) => {
     setCurrentAppTitle(title)
@@ -14,17 +15,17 @@ export default function Apps() {
   return (
     <Box cornerImage="/side-container.webp" cornerSize={64} padding={0} className={styles.box}>
       <ul className={styles.apps}>
-        <li>
+        <li className={currentAppTitle === 'To-do list' ? styles.selected : ''}>
           <Link className={styles.link} href="/todo" onClick={() => handleAppClick('To-do list')}>
             To-do list
           </Link>
         </li>
-        <li>
+        <li className={currentAppTitle === 'Timer' ? styles.selected : ''}>
           <Link className={styles.link} href="/timer" onClick={() => handleAppClick('Timer')}>
             Timer
           </Link>
         </li>
-        <li>
+        <li className={currentAppTitle === 'Unit Converter' ? styles.selected : ''}>
           <Link
             className={styles.link}
             href="/unit"
@@ -33,12 +34,12 @@ export default function Apps() {
             Unit Converter
           </Link>
         </li>
-        <li>
+        <li className={currentAppTitle === 'Dice' ? styles.selected : ''}>
           <Link className={styles.link} href="/dice" onClick={() => handleAppClick('Dice')}>
             Dice
           </Link>
         </li>
-        <li>
+        <li className={currentAppTitle === 'Clocks' ? styles.selected : ''}>
           <Link className={styles.link} href="/clocks" onClick={() => handleAppClick('Clocks')}>
             Clocks
           </Link>

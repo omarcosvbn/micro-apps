@@ -28,6 +28,11 @@
     background-color: variables.$hover-color;
 
   }
+
+  li.selected{
+    background-color: variables.$secondary-color;
+    color: variables.$primary-color;
+  }
 }
 
 .link {
