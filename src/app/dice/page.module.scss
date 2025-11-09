@@ -8,3 +8,66 @@
   gap: 15px;
 }
 
+.diceBox {
+  height: 300px;
+  display: flex;
+  align-items: center;
+}
+
+.roll {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.form {
+  height: 200px;
+}
+
+.select {
+  width: 200px;
+  height: 60px;
+  color: #6c6c6c;
+  font-size: 25px;
+
+  select {
+    all: unset;
+    width: 100%;
+    height: 28px;
+    background-color: variables.$primary-color;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+}
+
+.submit {
+  all: unset;
+  position: relative;
+  width: 80px;
+  height: 60px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  overflow: hidden;
+  font-size: 24px;
+
+  & > div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1110px) {
+.select{
+    width: 50vw;
+    max-width: 300px;
+}
+
+  .roll {
+    justify-content: space-between;
+  }
+}
