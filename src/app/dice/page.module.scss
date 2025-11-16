@@ -12,6 +12,7 @@
   height: 300px;
   display: flex;
   align-items: center;
+  padding-left: 16px;
 }
 
 .roll {
@@ -30,6 +31,7 @@
   height: 60px;
   color: #6c6c6c;
   font-size: 25px;
+  padding: 16px;
 
   select {
     all: unset;
