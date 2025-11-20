@@ -11,8 +11,18 @@
 .diceBox {
   height: 300px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 15px;
   padding-left: 16px;
+  overflow-y: scroll;
+}
+
+.sequence {
+  // width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .roll {
@@ -64,10 +74,14 @@
 }
 
 @media (max-width: 1110px) {
-.select{
+  .diceBox {
+    flex-grow: 1;
+  }
+
+  .select {
     width: 50vw;
     max-width: 300px;
-}
+  }
 
   .roll {
     justify-content: space-between;

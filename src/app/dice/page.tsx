@@ -1,11 +1,30 @@
-'use client'
+"use client"
 
+import React, { useState } from 'react'
 import Box from '../components/Box/Box'
 import styles from './page.module.scss'
 
 export default function Dice() {
+  const [rolls, setRolls] = useState<number[]>([])
+
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+    const picked = formData.get('numbers')
+    const target = Number(picked)
+
+    if (!target || target < 1 || target > 6) return
+
+    const newRolls: number[] = []
+    let roll = 0
+    do {
+      roll = Math.floor(Math.random() * 6) + 1
+      newRolls.push(roll)
+    } while (roll !== target)
+
+    setRolls(newRolls)
   }
 
   return (
@@ -14,16 +33,15 @@ export default function Dice() {
         cornerImage="/container.webp"
         mobileCornerImage="/side-container.webp"
         className={styles.diceBox}
+        title={rolls.length === 0 ? "Choose a number" : `It took you ${rolls.length.toString()} dice`}
       >
-        {(() => {
-          const roll = Math.floor(Math.random() * 6) + 1
-          const src = `/dice/${roll}.webp`
-          return (
-            <div>
-              <img src={src} alt={`Dice ${roll}`} width={128} height={128} />
-            </div>
-          )
-        })()}
+        {rolls.length > 0 ? (
+          <div className={styles.sequence}>
+            {rolls.map((r, i) => (
+              <img key={i} src={`/dice/${r}.webp`} alt={`Dice ${r}`} width={125} height={125} />
+            ))}
+          </div>
+        ) : null}
       </Box>
 
       <div className={styles.roll}>
